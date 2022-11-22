@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>rectang</title>
+</head>
+<body>
+<div id="area">DIỆN TÍCH: </div>
+<div id="perimeter">CHU VI: </div>
+<canvas id="rect" width="700px" height="500px" style="border:10px solid #d3d3d3;"></canvas>
+<script>
+  let rectang = function (w,h){
+    this.w= w;
+    this.h= h;
+    this.changew = function (w){
+      this.w = w;
+    };
+    this.changeh = function (h){
+      this.h = h;
+    };
+    this.Area = function (){
+      return (this.w*this.h);
+    };
+    this.perimeter = function (){
+      return (this.h+this.w)*2;
+    };
+  }
+  let rec = new rectang(250,150);
+  rec.changeh(150);
+  rec.changew(100);
+  function createrect(n){
+      let draw = document.getElementById("rect");
+      let drrect = draw.getContext("2d");
+      drrect.fillStyle = "#344d67";
+      drrect.fillRect(250,150,n.w,n.h);
+
+  }
+
+  createrect(rec);
+  document.getElementById("area").innerHTML = `diện tích là: ${rec.Area()}`;
+  document.getElementById("perimeter").innerHTML = `chu vi là: ${rec.perimeter()}`;
+</script>
+</body>
+</html>
